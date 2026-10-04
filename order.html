@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="FrogNutri – Đặt hàng bột ếch dinh dưỡng và theo dõi các phiên bản nghiên cứu."
+  >
+
+  <title>Đặt hàng online | FrogNutri</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       TOP BAR
+  ========================== -->
+  <div class="topbar">
+    <div class="container">
+      <span>
+        🐸 FrogNutri • Từ giá trị bỏ quên đến dinh dưỡng tiện lợi
+      </span>
+
+      <span>
+        🌱 Phiên bản phát triển 2026–2027
+      </span>
+    </div>
+  </div>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+  <nav class="nav">
+
+    <div class="container nav-inner">
+
+      <a class="brand" href="index.html">
+
+        <img
+          src="assets/img/frognutri-logo.jpg"
+          alt="Logo FrogNutri"
+        >
+
+        <span>FrogNutri</span>
+
+      </a>
+
+
+      <!-- Facebook -->
+      <a
+        class="fb-link"
+        href="https://www.facebook.com/share/1MTS1ZrXDZ/?mibextid=wwXIfr"
+        target="_blank"
+        rel="noopener"
+        title="Facebook FrogNutri"
+        aria-label="Facebook FrogNutri"
+      >
+        f
+      </a>
+
+
+      <button
+        class="mobile-toggle"
+        data-mobile
+        aria-label="Mở menu"
+      >
+        ☰
+      </button>
+
+
+      <div class="links">
+
+        <a href="index.html">
+          Trang chủ
+        </a>
+
+        <a href="product.html">
+          Sản phẩm
+        </a>
+
+        <a href="ingredients.html">
+          Nguyên liệu
+        </a>
+
+        <a href="research.html">
+          FrogNutri Lab
+        </a>
+
+        <a href="ai.html">
+          AI & Khảo sát
+        </a>
+
+        <a class="active" href="order.html">
+          Đặt hàng
+        </a>
+
+        <a
+          data-account-link
+          href="account.html"
+        >
+          Tài khoản
+        </a>
+
+        <button
+          class="user-btn"
+          data-open-auth="login"
+          data-login
+        >
+          Đăng nhập
+        </button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =========================
+       PAGE HERO
+  ========================== -->
+  <section class="page-hero">
+
+    <div class="container reveal">
+
+      <span class="eyebrow">
+        🛒 FrogNutri Store
+      </span>
+
+      <h1>
+        Chọn phiên bản bạn muốn trải nghiệm
+      </h1>
+
+      <p class="lead">
+        FrogNutri phát triển từ sản phẩm bột thân ếch Original.
+        Song song với phiên bản nền tảng, nhóm đang nghiên cứu
+        khả năng kết hợp bột ếch với các nguyên liệu thực vật
+        địa phương nhằm tìm ra những công thức phù hợp về
+        cảm quan, kỹ thuật và kinh tế.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PRODUCT LIST
+  ========================== -->
+  <section class="section">
+
+    <div class="container">
+
+      <div
+        id="productList"
+        class="product-cards"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       CART + CHECKOUT
+  ========================== -->
+  <section class="section">
+
+    <div class="container product-grid">
+
+
+      <!-- =====================
+           CART
+      ====================== -->
+      <div class="card">
+
+        <span class="eyebrow">
+          🛒 Giỏ hàng
+        </span>
+
+        <h2>
+          Giỏ hàng của bạn
+        </h2>
+
+        <div
+          id="cartList"
+          class="cart-list"
+        ></div>
+
+
+        <div
+          style="
+            display:flex;
+            justify-content:space-between;
+            margin-top:18px;
+            font-weight:900;
+          "
+        >
+
+          <span>
+            Tạm tính
+          </span>
+
+          <span id="cartTotal">
+            0đ
+          </span>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          id="checkoutBtn"
+          style="
+            width:100%;
+            margin-top:16px;
+          "
+        >
+          Tiến hành đặt hàng
+        </button>
+
+      </div>
+
+
+
+      <!-- =====================
+           CHECKOUT FORM
+      ====================== -->
+      <div class="card">
+
+        <h2>
+          Thông tin đặt hàng
+        </h2>
+
+
+        <div class="note">
+
+          <b>
+            ☎️ Xác minh đơn hàng
+          </b>
+
+          <br>
+
+          Sau khi nhận thông tin đặt mua,
+          FrogNutri sẽ gọi xác minh trong khung
+
+          <b>
+            13:00–20:00, từ thứ Hai đến thứ Bảy
+          </b>.
+
+        </div>
+
+
+
+        <!-- LOGIN GATE -->
+        <div
+          id="orderGate"
+          class="lock-card"
+        >
+
+          <h3>
+            🔐 Cần đăng nhập
+          </h3>
+
+          <p>
+            Đăng nhập để lưu giỏ hàng,
+            đặt mua và xem lịch sử đơn hàng.
+          </p>
+
+          <button
+            class="btn btn-primary"
+            data-open-auth="login"
+          >
+            Đăng nhập
+          </button>
+
+        </div>
+
+
+
+        <!-- CHECKOUT FORM -->
+        <form
+          id="checkoutForm"
+          class="hidden"
+        >
+
+          <div class="form-row">
+
+            <div>
+
+              <label for="shipName">
+                Họ tên
+              </label>
+
+              <input
+                id="shipName"
+                type="text"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="shipPhone">
+                Số điện thoại
+              </label>
+
+              <input
+                id="shipPhone"
+                type="tel"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+
+          <label for="shipAddress">
+            Địa chỉ nhận hàng
+          </label>
+
+          <textarea
+            id="shipAddress"
+            rows="3"
+            required
+          ></textarea>
+
+
+
+          <label for="shipNote">
+            Ghi chú
+          </label>
+
+          <textarea
+            id="shipNote"
+            rows="2"
+            placeholder="Ví dụ: Giao giờ hành chính..."
+          ></textarea>
+
+
+
+          <button
+            class="btn btn-pink"
+            type="submit"
+          >
+            Gửi thông tin đặt mua
+          </button>
+
+        </form>
+
+
+
+        <!-- ORDER RESULT -->
+        <div id="orderResult"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       CHARITY
+  ========================== -->
+  <section class="section">
+
+    <div class="container note">
+
+      <h2>
+        🌱 Một đơn hàng, thêm một điều tử tế
+      </h2>
+
+      <p style="margin-bottom:0">
+
+        Theo chương trình thiện nguyện của dự án,
+        FrogNutri dự kiến dành
+
+        <b>
+          5% giá trị mỗi đơn hàng
+        </b>
+
+        để đóng góp cho hoạt động hỗ trợ
+        trẻ em khuyết tật theo từng tháng.
+
+        Website sẽ cập nhật minh chứng và tổng hợp
+        hoạt động khi chương trình được triển khai.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <h3 style="color:#fff">
+          FrogNutri 🐸
+        </h3>
+
+        <p>
+          Từ giá trị bỏ quên đến dinh dưỡng tiện lợi.
+        </p>
+
+        <p>
+          🌱 Mỗi đơn hàng:
+          FrogNutri dành 5% để đóng góp
+          cho hoạt động hỗ trợ trẻ em khuyết tật
+          theo chương trình thiện nguyện
+          hằng tháng của dự án.
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <b>
+          Khám phá
+        </b>
+
+        <p>
+
+          <a href="research.html">
+            FrogNutri Lab
+          </a>
+
+          <br>
+
+          <a href="product.html#documents">
+            Hồ sơ kiểm nghiệm
+          </a>
+
+          <br>
+
+          <a href="order.html">
+            Đặt hàng online
+          </a>
+
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <b>
+          Kết nối
+        </b>
+
+        <p>
+
+          <a
+            href="https://www.facebook.com/share/1MTS1ZrXDZ/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook FrogNutri ↗
+          </a>
+
+          <br>
+
+          Website phát triển 2026–2027
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- TOAST -->
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+
+  <!-- =========================
+       ORDER SCRIPT
+  ========================== -->
+  <script>
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      async () => {
+
+
+        /* =========================
+           VARIABLES
+        ========================== */
+
+        let products = [];
+
+        let cart = JSON.parse(
+          localStorage.getItem('fn_cart') || '[]'
+        );
+
+
+        /* =========================
+           ELEMENTS
+        ========================== */
+
+        const productList =
+          document.getElementById('productList');
+
+        const cartList =
+          document.getElementById('cartList');
+
+        const cartTotal =
+          document.getElementById('cartTotal');
+
+        const checkoutBtn =
+          document.getElementById('checkoutBtn');
+
+        const checkoutForm =
+          document.getElementById('checkoutForm');
+
+        const orderGate =
+          document.getElementById('orderGate');
+
+        const orderResult =
+          document.getElementById('orderResult');
+
+        const shipName =
+          document.getElementById('shipName');
+
+        const shipPhone =
+          document.getElementById('shipPhone');
+
+        const shipAddress =
+          document.getElementById('shipAddress');
+
+        const shipNote =
+          document.getElementById('shipNote');
+
+
+        /* =========================
+           MONEY
+        ========================== */
+
+        function money(value) {
+
+          if (
+            value === null ||
+            value === undefined ||
+            value === '' ||
+            Number(value) <= 0
+          ) {
+
+            return 'Liên hệ';
+
+          }
+
+          return Number(value)
+            .toLocaleString('vi-VN') + 'đ';
+
+        }
+
+
+        /* =========================
+           SAVE CART
+        ========================== */
+
+        function saveCart() {
+
+          localStorage.setItem(
+            'fn_cart',
+            JSON.stringify(cart)
+          );
+
+          renderCart();
+
+        }
+
+
+        /* =========================
+           RENDER CART
+        ========================== */
+
+        function renderCart() {
+
+          if (!cart.length) {
+
+            cartList.innerHTML = `
+              <div class="order-item">
+                🛒 Chưa có sản phẩm trong giỏ.
+              </div>
+            `;
+
+            cartTotal.textContent = '0đ';
+
+            return;
+
+          }
+
+
+          cartList.innerHTML = cart
+            .map(
+              (item, index) => `
+
+                <div class="order-item">
+
+                  <div>
+
+                    <b>
+                      ${item.name}
+                    </b>
+
+                    <br>
+
+                    <small>
+                      ${money(item.price)}
+                      / túi
+                    </small>
+
+                  </div>
+
+
+                  <div class="qty">
+
+                    <button
+                      type="button"
+                      data-minus="${index}"
+                    >
+                      −
+                    </button>
+
+                    <b>
+                      ${item.qty}
+                    </b>
+
+                    <button
+                      type="button"
+                      data-plus="${index}"
+                    >
+                      +
+                    </button>
+
+                  </div>
+
+
+                  <b>
+                    ${money(
+                      Number(item.price) * item.qty
+                    )}
+                  </b>
+
+                </div>
+
+              `
+            )
+            .join('');
+
+
+          const total = cart.reduce(
+            (sum, item) =>
+              sum +
+              Number(item.price) * item.qty,
+            0
+          );
+
+
+          cartTotal.textContent =
+            money(total);
+
+
+          /* MINUS */
+
+          document
+            .querySelectorAll('[data-minus]')
+            .forEach(button => {
+
+              button.onclick = () => {
+
+                const index =
+                  Number(button.dataset.minus);
+
+                cart[index].qty--;
+
+                if (
+                  cart[index].qty <= 0
+                ) {
+
+                  cart.splice(index, 1);
+
+                }
+
+                saveCart();
+
+              };
+
+            });
+
+
+          /* PLUS */
+
+          document
+            .querySelectorAll('[data-plus]')
+            .forEach(button => {
+
+              button.onclick = () => {
+
+                const index =
+                  Number(button.dataset.plus);
+
+                cart[index].qty++;
+
+                saveCart();
+
+              };
+
+            });
+
+        }
+
+
+        /* =========================
+           ADD PRODUCT
+        ========================== */
+
+        function addProduct(product) {
+
+          if (!FN.requireAuth()) {
+
+            return;
+
+          }
+
+
+          const existing =
+            cart.find(
+              item =>
+                item.id === product.id
+            );
+
+
+          if (existing) {
+
+            existing.qty++;
+
+          } else {
+
+            cart.push({
+
+              ...product,
+
+              qty: 1
+
+            });
+
+          }
+
+
+          saveCart();
+
+
+          FN.toast(
+            'Đã thêm Bột ếch FrogNutri vào giỏ 🛒'
+          );
+
+        }
+
+
+        /* =========================
+           DEFAULT PRODUCTS
+           
+           ORIGINAL = 50.000đ
+           OTHERS = NULL
+        ========================== */
+
+        const defaultProducts = [
+
+          {
+            id: 'original',
+
+            name:
+              'Bột ếch FrogNutri Original',
+
+            price: 50000,
+
+            image:
+              'assets/img/original-product.jpg',
+
+            status:
+              'Đang bán',
+
+            description:
+              'Phiên bản nền tảng của FrogNutri, phát triển từ bột thân ếch.'
+          },
+
+
+          {
+            id: 'khoai',
+
+            name:
+              'Bột ếch + khoai lang tím',
+
+            price: null,
+
+            image:
+              'assets/img/product-khoai.svg',
+
+            status:
+              'Nghiên cứu',
+
+            description:
+              'Công thức đang được nghiên cứu với khoai lang tím địa phương.'
+          },
+
+
+          {
+            id: 'cai',
+
+            name:
+              'Bột ếch + củ cải muối',
+
+            price: null,
+
+            image:
+              'assets/img/product-cai.svg',
+
+            status:
+              'Nghiên cứu',
+
+            description:
+              'Phiên bản nghiên cứu khả năng kết hợp bột ếch với củ cải muối.'
+          },
+
+
+          {
+            id: 'hu-dua',
+
+            name:
+              'Bột ếch + củ hủ dừa',
+
+            price: null,
+
+            image:
+              'assets/img/product-hu-dua.svg',
+
+            status:
+              'Nghiên cứu',
+
+            description:
+              'Phiên bản nghiên cứu kết hợp bột ếch với củ hủ dừa.'
+          },
+
+
+          {
+            id: 'mix3',
+
+            name:
+              'Bột ếch Mix 3 nguyên liệu',
+
+            price: null,
+
+            image:
+              'assets/img/product-mix3.svg',
+
+            status:
+              'Nghiên cứu',
+
+            description:
+              'Công thức đang được đánh giá với khoai lang tím, củ cải muối và củ hủ dừa.'
+          }
+
+        ];
+
+
+        /* =========================
+           LOAD PRODUCTS FROM BACKEND
+        ========================== */
+
+        try {
+
+          const response =
+            await FN.api('/products');
+
+
+          if (
+            response &&
+            Array.isArray(response.products) &&
+            response.products.length
+          ) {
+
+            products =
+              response.products;
+
+          } else {
+
+            products =
+              defaultProducts;
+
+          }
+
+        } catch (error) {
+
+          console.warn(
+            'Không thể kết nối backend:',
+            error
+          );
+
+          products =
+            defaultProducts;
+
+        }
+
+
+        /* =========================
+           FORCE CURRENT PRICING
+           
+           Đảm bảo frontend không
+           hiện lại giá cũ từ backend.
+        ========================== */
+
+        products =
+          products.map(product => {
+
+            if (
+              product.id === 'original'
+            ) {
+
+              return {
+
+                ...product,
+
+                price: 50000,
+
+                status:
+                  'Đang bán'
+
+              };
+
+            }
+
+
+            return {
+
+              ...product,
+
+              price: null,
+
+              status:
+                'Nghiên cứu'
+
+            };
+
+          });
+
+
+        /* =========================
+           RENDER PRODUCTS
+        ========================== */
+
+        productList.innerHTML =
+          products
+            .map(product => {
+
+
+              const isAvailable =
+                product.id === 'original';
+
+
+              const priceText =
+                isAvailable
+                  ? money(product.price)
+                  : 'Chưa công bố giá';
+
+
+              const buttonText =
+                isAvailable
+                  ? 'Thêm vào giỏ 🛒'
+                  : 'Đang nghiên cứu';
+
+
+              return `
+
+                <article
+                  class="card product-card reveal"
+                >
+
+                  <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                  >
+
+
+                  <span class="tag">
+                    ${product.status}
+                  </span>
+
+
+                  <h3>
+                    ${product.name}
+                  </h3>
+
+
+                  <p
+                    style="color:var(--muted)"
+                  >
+                    ${
+                      product.description ||
+                      'Phiên bản được phát triển trong hệ sinh thái FrogNutri.'
+                    }
+                  </p>
+
+
+                  <div class="price">
+
+                    ${priceText}
+
+                  </div>
+
+
+                  <button
+                    class="btn ${
+                      isAvailable
+                        ? 'btn-primary'
+                        : 'btn-pink'
+                    }"
+                    data-add="${product.id}"
+                    ${
+                      !isAvailable
+                        ? 'disabled'
+                        : ''
+                    }
+                    style="
+                      width:100%;
+                      margin-top:12px;
+                    "
+                  >
+
+                    ${buttonText}
+
+                  </button>
+
+                </article>
+
+              `;
+
+            })
+            .join('');
+
+
+        /* =========================
+           PRODUCT BUTTON EVENTS
+        ========================== */
+
+        document
+          .querySelectorAll('[data-add]')
+          .forEach(button => {
+
+            button.onclick = () => {
+
+              const product =
+                products.find(
+                  item =>
+                    item.id ===
+                    button.dataset.add
+                );
+
+
+              if (!product) {
+
+                return;
+
+              }
+
+
+              if (
+                product.id !==
+                'original'
+              ) {
+
+                FN.toast(
+                  'Phiên bản này đang trong quá trình R&D và chưa mở bán chính thức.'
+                );
+
+                return;
+
+              }
+
+
+              addProduct(product);
+
+            };
+
+          });
+
+
+        /* =========================
+           INITIAL CART
+        ========================== */
+
+        renderCart();
+
+
+        /* =========================
+           CHECKOUT BUTTON
+        ========================== */
+
+        checkoutBtn.onclick = () => {
+
+
+          if (!FN.requireAuth()) {
+
+            return;
+
+          }
+
+
+          if (!cart.length) {
+
+            FN.toast(
+              'Giỏ hàng đang trống 🛒'
+            );
+
+            return;
+
+          }
+
+
+          orderGate.classList.add(
+            'hidden'
+          );
+
+          checkoutForm.classList.remove(
+            'hidden'
+          );
+
+
+          const user =
+            FN.user();
+
+
+          if (user) {
+
+            shipName.value =
+              user.name || '';
+
+          }
+
+        };
+
+
+        /* =========================
+           IF ALREADY LOGGED IN
+        ========================== */
+
+        if (FN.user()) {
+
+          orderGate.classList.add(
+            'hidden'
+          );
+
+          checkoutForm.classList.remove(
+            'hidden'
+          );
+
+
+          const user =
+            FN.user();
+
+
+          shipName.value =
+            user.name || '';
+
+        }
+
+
+        /* =========================
+           SUBMIT ORDER
+        ========================== */
+
+        checkoutForm.onsubmit =
+          async event => {
+
+            event.preventDefault();
+
+
+            if (!FN.requireAuth()) {
+
+              return;
+
+            }
+
+
+            if (!cart.length) {
+
+              FN.toast(
+                'Giỏ hàng đang trống.'
+              );
+
+              return;
+
+            }
+
+
+            try {
+
+              const response =
+                await FN.api(
+                  '/orders',
+                  {
+
+                    method: 'POST',
+
+                    headers: {
+                      'Content-Type':
+                        'application/json'
+                    },
+
+                    body: JSON.stringify({
+
+                      items: cart,
+
+                      phone:
+                        shipPhone.value,
+
+                      address:
+                        shipAddress.value,
+
+                      note:
+                        shipNote.value
+
+                    })
+
+                  }
+                );
+
+
+              orderResult.innerHTML = `
+
+                <div
+                  class="note"
+                  style="margin-top:15px"
+                >
+
+                  <b>
+                    🎉 Đã tiếp nhận đơn
+                    #${response.order.id}
+                  </b>
+
+                  <br><br>
+
+                  Cảm ơn bạn đã lựa chọn
+                  FrogNutri.
+
+                  <br>
+
+                  FrogNutri sẽ gọi xác minh
+                  trong khung
+
+                  <b>
+                    13:00–20:00,
+                    từ thứ Hai đến thứ Bảy
+                  </b>.
+
+                </div>
+
+              `;
+
+
+              /* CLEAR CART */
+
+              cart = [];
+
+              saveCart();
+
+
+              /* RESET FORM */
+
+              checkoutForm.reset();
+
+
+              const user =
+                FN.user();
+
+
+              if (user) {
+
+                shipName.value =
+                  user.name || '';
+
+              }
+
+
+              FN.toast(
+                'Đã gửi thông tin đặt mua ✨'
+              );
+
+
+            } catch (error) {
+
+              console.error(
+                error
+              );
+
+
+              FN.toast(
+                error.message ||
+                'Không thể gửi đơn hàng.'
+              );
+
+            }
+
+          };
+
+
+      }
+
+    );
+
+  </script>
+
+
+  <!-- GLOBAL SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>

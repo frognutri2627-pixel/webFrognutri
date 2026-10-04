@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "dff0cc97-7aba-4ec1-bd33-a6ec530c0a52",
+      "name": "Anh Thơ",
+      "email": "ngatho.0808@gmail.com",
+      "password": "$2a$10$SqMkKgrXVnv.8pa2Bsl9D..0SEOZ04g6TvZdkOdu7B4qcni6T1tq.",
+      "vouchers": [],
+      "createdAt": "2026-08-16T03:27:01.922Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "a4b0371adacf0178a43e79167b21e4239805f3ba6b36ee9785b9f96db952c3d2",
+      "userId": "dff0cc97-7aba-4ec1-bd33-a6ec530c0a52",
+      "createdAt": "2026-08-16T03:27:01.922Z"
+    },
+    {
+      "token": "6f7d0f24d159f9d95f6292012778bd8076304cadfc053cb63a22e188e3f879ea",
+      "userId": "dff0cc97-7aba-4ec1-bd33-a6ec530c0a52",
+      "createdAt": "2026-08-16T03:31:01.383Z"
+    }
+  ],
+  "orders": [],
+  "reviews": []
+}
